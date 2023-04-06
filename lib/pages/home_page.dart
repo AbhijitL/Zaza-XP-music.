@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zaza_xp/services/utils.dart';
+import 'package:zaza_xp/widgets/progress_visualizer.dart';
 import 'package:zaza_xp/widgets/song_cover.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +13,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Color imageColor = Colors.white;
+  List<Color> colors = [
+    Colors.green[900]!,
+    Colors.green[900]!,
+    Colors.blue[900]!,
+    Colors.brown[900]!
+  ];
   String imgPath = "assets/images/test_images/test_cover.JPG";
 
   @override
@@ -24,9 +31,17 @@ class _HomePageState extends State<HomePage> {
   Future<Color> setImageColor() async {
     imgPath = await getRandomImageLoc();
     imageColor = await getImageColor(imgPath);
+    colors = [
+      imageColor!,
+      Color.fromARGB(255, 223, 244, 224)!,
+      imageColor!,
+      Color.fromARGB(255, 255, 255, 255)!
+    ];
     setState(() {});
     return imageColor;
   }
+
+  final List<int> duration = [900, 700, 600, 800, 500];
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +88,15 @@ class _HomePageState extends State<HomePage> {
                 fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                 color: Color.fromARGB(255, 232, 232, 232),
               ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(30),
+            child: ProgressVisualizer(
+              barCount: 30,
+              colors: colors,
+              duration: duration,
+              curve: Curves.bounceOut,
             ),
           ),
         ],
