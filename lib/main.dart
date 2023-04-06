@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zaza_xp/pages/HomePage.dart';
+import 'package:zaza_xp/pages/home_page.dart';
 
 void main() {
   // Set status bar to transparent.
