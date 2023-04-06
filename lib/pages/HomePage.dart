@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zaza_xp/widgets/SongCover.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,9 +12,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: <Color>[
+          Colors.greenAccent,
+          // Color(0xff000000),
+          Color(0xff000000),
+        ],
+      )),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [SongCover()],
       ),
     );
   }
