@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Color imageColor = Colors.white;
+  String imgPath = "assets/images/test_images/test_cover.JPG";
 
   @override
   void initState() {
@@ -20,7 +21,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<Color> setImageColor() async {
-    imageColor = await getImageColor("assets/images/test_cover.JPG");
+    imgPath = await getRandomImageLoc();
+    imageColor = await getImageColor(imgPath);
     setState(() {});
     return imageColor;
   }
@@ -34,13 +36,13 @@ class _HomePageState extends State<HomePage> {
         end: Alignment.bottomCenter,
         colors: <Color>[
           imageColor,
-          // Color(0xff000000),
+          Color(0xff000000),
           Color(0xff000000),
         ],
       )),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [SongCover()],
+        children: [SongCover(imgUrl: imgPath)],
       ),
     );
   }
