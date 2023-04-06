@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zaza_xp/services/utils.dart';
 import 'package:zaza_xp/widgets/song_cover.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Color imageColor = Colors.white;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setImageColor();
+  }
+
+  Future<Color> setImageColor() async {
+    imageColor = await getImageColor("assets/images/test_cover.JPG");
+    setState(() {});
+    return imageColor;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: <Color>[
-          Colors.greenAccent,
+          imageColor,
           // Color(0xff000000),
           Color(0xff000000),
         ],
