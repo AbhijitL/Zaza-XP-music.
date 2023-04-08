@@ -19,7 +19,7 @@ class ProgressVisualizer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
