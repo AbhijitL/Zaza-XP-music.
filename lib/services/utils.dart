@@ -4,7 +4,7 @@ import 'package:palette_generator/palette_generator.dart';
 import '../constants.dart';
 
 Future<Color> getImageColor(String url) async {
-  Image img = Image.asset(url);
+  Image img = Image.network(url);
   return await _updatePaletteGenerator(img);
 }
 
