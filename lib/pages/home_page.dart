@@ -27,12 +27,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Color imageColor = Colors.greenAccent;
+  Color imageColor = Color.fromARGB(255, 206, 215, 211);
   List<Color> colors = [
-    Colors.green[900]!,
-    Colors.green[900]!,
-    Colors.blue[900]!,
-    Colors.brown[900]!
+    Color.fromARGB(255, 224, 255, 226)!,
+    Color.fromARGB(255, 222, 255, 225)!,
+    Color.fromARGB(255, 226, 237, 255)!,
+    Color.fromARGB(255, 255, 224, 218)!
   ];
   String imgPath = "assets/images/test_images/test_cover.JPG";
 
@@ -55,9 +55,9 @@ class _HomePageState extends State<HomePage> {
     imageColor = await getImageColor(widget.albumURL);
     colors = [
       imageColor!,
-      Color.fromARGB(255, 223, 244, 224)!,
+      Color.fromARGB(255, 234, 255, 229)!,
       imageColor!,
-      Color.fromARGB(255, 255, 255, 255)!
+      Color.fromARGB(255, 255, 235, 235)!
     ];
     setState(() {});
     return imageColor;
@@ -74,12 +74,12 @@ class _HomePageState extends State<HomePage> {
         end: Alignment.bottomCenter,
         colors: <Color>[
           imageColor,
-          Color(0xff000000),
-          Color.fromARGB(255, 0, 0, 0),
+          Color.fromARGB(241, 0, 0, 0),
+          Color.fromARGB(115, 0, 0, 0),
         ],
       )),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SongCover(imgUrl: widget.albumURL),
@@ -93,7 +93,6 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                   fontSize: 50,
                   color: Colors.white,
                 ),
@@ -107,7 +106,6 @@ class _HomePageState extends State<HomePage> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
-                fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                 color: Color.fromARGB(255, 232, 232, 232),
               ),
             ),
@@ -140,7 +138,6 @@ class _HomePageState extends State<HomePage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
-                          fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                           color: Color.fromARGB(255, 232, 232, 232),
                         ),
                       ),
@@ -151,7 +148,6 @@ class _HomePageState extends State<HomePage> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
-                      fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
                       color: Color.fromARGB(255, 232, 232, 232),
                     ),
                   ),
