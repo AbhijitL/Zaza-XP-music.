@@ -19,15 +19,18 @@ class ProgressVisualizer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: new List<Widget>.generate(
-              barCount!,
-              (index) => VisualComponent(
-                    curve: curve!,
-                    duration: duration![index % 5],
-                    color: colors![index % 4],
-                  )),
+        Container(
+          height: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: new List<Widget>.generate(
+                barCount!,
+                (index) => VisualComponent(
+                      curve: curve!,
+                      duration: duration![index % 5],
+                      color: colors![index % 4],
+                    )),
+          ),
         ),
       ],
     );
