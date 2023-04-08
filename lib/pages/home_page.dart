@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Text(
-                    widget.duration.toString(),
+                    formatedTime(timeInSecond: widget.duration),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
