@@ -93,3 +93,21 @@ String getStartTime(MusicData data) {
   }
   return startTime;
 }
+
+String getArtistImage(MusicData data) {
+  String artistImage = defaultImage;
+  final List<Artist> artistList = data.d.song.artists;
+  try {
+    for (int i = 0; i < artistList.length; i++) {
+      if (artistList[i].image != null) {
+        artistImage = "https://cdn.listen.moe/artists/" + artistList[i].image!;
+      } else {
+        artistImage = defaultImage;
+      }
+      break;
+    }
+  } catch (e) {
+    return artistImage;
+  }
+  return artistImage;
+}
