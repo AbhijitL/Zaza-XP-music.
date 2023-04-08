@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zaza_xp/services/utils.dart';
+import 'package:zaza_xp/widgets/play_button.dart';
 import 'package:zaza_xp/widgets/progress_visualizer.dart';
 import 'package:zaza_xp/widgets/song_cover.dart';
 
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           SongCover(imgUrl: imgPath),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(2),
             child: Material(
               color: Colors.transparent,
               child: Text(
@@ -91,13 +92,54 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
             child: ProgressVisualizer(
               barCount: 30,
               colors: colors,
               duration: duration,
               curve: Curves.bounceOut,
             ),
+          ),
+          Material(
+            color: Colors.transparent,
+            child: Padding(
+              padding:
+                  EdgeInsets.only(top: 10, bottom: 10, left: 40, right: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.hearing_outlined,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        ":0",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                          color: Color.fromARGB(255, 232, 232, 232),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "1:23",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
+                      color: Color.fromARGB(255, 232, 232, 232),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          PlayButton(
+            btnColor: imageColor,
           ),
         ],
       ),
