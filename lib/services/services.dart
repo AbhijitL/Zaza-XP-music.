@@ -81,3 +81,15 @@ int getSongDuration(MusicData data) {
   }
   return duration;
 }
+
+//Get Start time in H:M:S
+String getStartTime(MusicData data) {
+  String startTime = "Null";
+  try {
+    var timeData = data.d.startTime!;
+    startTime = timeData.split("T").last.split(".").first;
+  } catch (e) {
+    return startTime;
+  }
+  return startTime;
+}
