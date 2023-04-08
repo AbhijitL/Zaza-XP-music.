@@ -24,7 +24,8 @@ class _SongCoverState extends State<SongCover> {
           alignment: Alignment.center,
           fit: BoxFit.cover,
           child: CircleAvatar(
-            backgroundImage: NetworkImage(widget.imgUrl),
+            backgroundImage: AssetImage("assets/images/bg/dd.jpg"),
+            foregroundImage: NetworkImage(widget.imgUrl),
           ),
           clipBehavior: Clip.hardEdge,
         ),
