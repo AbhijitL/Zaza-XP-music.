@@ -62,10 +62,10 @@ String getArtistName(MusicData data) {
   final List<Artist> artistList = data.d.song.artists;
   try {
     for (int i = 0; i < artistList.length; i++) {
-      if (artistList[i].name != null) {
-        artistName = artistList[i].name!;
-      } else if (artistList[i].nameRomaji != null) {
+      if (artistList[i].nameRomaji != null) {
         artistName = artistList[i].nameRomaji!;
+      } else if (artistList[i].name != null) {
+        artistName = artistList[i].name!;
       }
       break;
     }
