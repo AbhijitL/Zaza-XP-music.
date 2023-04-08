@@ -111,3 +111,14 @@ String getArtistImage(MusicData data) {
   }
   return artistImage;
 }
+
+// get active listeners on current song.
+int getActiveListeners(MusicData data) {
+  int listeners = 0;
+  try {
+    listeners = data.d.listeners;
+  } catch (e) {
+    return listeners;
+  }
+  return listeners;
+}
