@@ -70,3 +70,14 @@ String getArtistName(MusicData data) {
   }
   return artistName;
 }
+
+// Get Song Duration in Seconds i.e 236
+int getSongDuration(MusicData data) {
+  int duration = 0;
+  try {
+    duration = data.d.song.duration;
+  } catch (e) {
+    return duration;
+  }
+  return duration;
+}
