@@ -1,19 +1,33 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:zaza_xp/services/utils.dart';
 import 'package:zaza_xp/widgets/play_button.dart';
 import 'package:zaza_xp/widgets/progress_visualizer.dart';
 import 'package:zaza_xp/widgets/song_cover.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  String albumURL;
+  String songTitle;
+  String artistName;
+  int listeners;
 
+  int duration;
+  HomePage({
+    Key? key,
+    required this.albumURL,
+    required this.songTitle,
+    required this.artistName,
+    required this.listeners,
+    required this.duration,
+  }) : super(key: key);
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Color imageColor = Colors.white;
+  Color imageColor = Colors.greenAccent;
   List<Color> colors = [
     Colors.green[900]!,
     Colors.green[900]!,
@@ -26,12 +40,19 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    setImageColor();
+    print("init of home called");
+    setColor();
   }
 
-  Future<Color> setImageColor() async {
-    imgPath = await getRandomImageLoc();
-    imageColor = await getImageColor(imgPath);
+  @override
+  void didUpdateWidget(HomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print("Update home page");
+    setColor();
+  }
+
+  Future<Color> setColor() async {
+    imageColor = await getImageColor(widget.albumURL);
     colors = [
       imageColor!,
       Color.fromARGB(255, 223, 244, 224)!,
@@ -61,13 +82,13 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SongCover(imgUrl: imgPath),
+          SongCover(imgUrl: widget.albumURL),
           Container(
             padding: EdgeInsets.all(2),
             child: Material(
               color: Colors.transparent,
               child: Text(
-                "Song Title",
+                widget.songTitle,
                 maxLines: 1,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
@@ -82,7 +103,7 @@ class _HomePageState extends State<HomePage> {
           Material(
             color: Colors.transparent,
             child: Text(
-              "Artist Name",
+              widget.artistName,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
@@ -115,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.white,
                       ),
                       Text(
-                        ":0",
+                        widget.listeners.toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
@@ -126,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   Text(
-                    "1:23",
+                    widget.duration.toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
