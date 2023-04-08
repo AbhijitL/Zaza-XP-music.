@@ -1,4 +1,6 @@
-var images = [
+const MusicSource = 'https://listen.moe/fallback';
+
+List<String> images = [
   "assets/images/test_images/test_cover.JPG",
   "assets/images/test_images/test_cover1.JPG",
   "assets/images/test_images/test_cover2.JPG",
