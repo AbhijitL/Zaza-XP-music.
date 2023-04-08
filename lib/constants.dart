@@ -9,4 +9,4 @@ List<String> images = [
   "assets/images/test_images/test_cover5.JPG"
 ];
 
-String defaultImage = images[1];
+String defaultImage = "https://i.imgur.com/bwpFQHQ.jpg";
