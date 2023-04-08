@@ -9,7 +9,7 @@ WebSocketChannel songChannel =
     IOWebSocketChannel.connect("wss://listen.moe/gateway_v2");
 
 connect() {
-  songChannel.stream.listen((event) {
+  getChannel().stream.listen((event) {
     var data = jsonDecode(event);
     if (data['op'] == 0) {
       heartBeat = data['d']['heartbeat'];
@@ -18,10 +18,14 @@ connect() {
   });
 }
 
+WebSocketChannel getChannel() {
+  return songChannel;
+}
+
 sendPings(int heartBeat) {
   Future.delayed(Duration(milliseconds: heartBeat), () {
     try {
-      songChannel.sink.add(jsonEncode({"op": 9}));
+      getChannel().sink.add(jsonEncode({"op": 9}));
     } catch (e) {
       connect();
     }
