@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zaza_xp/pages/home_page.dart';
+import 'package:zaza_xp/pages/loading_page.dart';
 
 void main() {
   // Set status bar to transparent.
@@ -19,7 +20,7 @@ class Root extends StatelessWidget {
       title: "Zaza Experience",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.green),
-      home: HomePage(),
+      home: LoadingPage(),
     );
   }
 }
