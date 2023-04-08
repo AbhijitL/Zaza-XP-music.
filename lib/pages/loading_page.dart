@@ -14,13 +14,6 @@ class LoadingPage extends StatefulWidget {
 
 class _LoadingPageState extends State<LoadingPage> {
   MusicData? data;
-  Color accentColor = Color(0x00EF5D77);
-  Future<Color> setColor() async {
-    accentColor = await getImageColor(getAlbumImage(data!));
-    print("Set accent color");
-    setState(() {});
-    return accentColor;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +41,6 @@ class _LoadingPageState extends State<LoadingPage> {
                     d['t'] != 'NOTIFICATION') break;
                 data = MusicData.fromJson(d);
                 sendPings(heartBeat);
-                // setColor();
                 print("Case 1 called");
                 break;
               default:
@@ -65,7 +57,6 @@ class _LoadingPageState extends State<LoadingPage> {
               songTitle: getSongTitle(data!),
               artistName: getArtistName(data!),
               listeners: getActiveListeners(data!),
-              // imageColor: accentColor,
               duration: getSongDuration(data!),
             );
           }
