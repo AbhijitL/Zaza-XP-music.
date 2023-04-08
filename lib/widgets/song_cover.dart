@@ -12,8 +12,6 @@ class SongCover extends StatefulWidget {
 }
 
 class _SongCoverState extends State<SongCover> {
-  var imageFilePath = "assets/images/test_images/test_cover.JPG";
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +24,7 @@ class _SongCoverState extends State<SongCover> {
           alignment: Alignment.center,
           fit: BoxFit.cover,
           child: CircleAvatar(
-            backgroundImage: AssetImage(widget.imgUrl),
+            backgroundImage: NetworkImage(widget.imgUrl),
           ),
           clipBehavior: Clip.hardEdge,
         ),
