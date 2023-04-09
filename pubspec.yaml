@@ -20,7 +20,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.1.0
-  audioplayers: ^0.20.1
+  # audioplayers: ^0.20.1
+  audio_service: ^0.18.9
+  just_audio: ^0.9.32
   web_socket_channel: ^2.2.0
   freezed_annotation: ^2.1.0
   json_annotation: ^4.6.0
