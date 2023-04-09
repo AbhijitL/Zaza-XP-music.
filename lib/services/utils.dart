@@ -15,11 +15,6 @@ Future<Color> _updatePaletteGenerator(Image img) async {
   return paletteGenerator.dominantColor!.color;
 }
 
-Future<String> getRandomImageLoc() async {
-  var imageFilePath = await (images..shuffle()).first;
-  return imageFilePath;
-}
-
 String formatedTime({required int timeInSecond}) {
   int sec = timeInSecond % 60;
   int min = (timeInSecond / 60).floor();
