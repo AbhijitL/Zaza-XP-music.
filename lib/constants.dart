@@ -1,12 +1,4 @@
 const MusicSource = 'https://listen.moe/fallback';
+const VocaloidSource = "http://curiosity.shoutca.st:8019/stream";
 
-List<String> images = [
-  "assets/images/test_images/test_cover.JPG",
-  "assets/images/test_images/test_cover1.JPG",
-  "assets/images/test_images/test_cover2.JPG",
-  "assets/images/test_images/test_cover3.JPG",
-  "assets/images/test_images/test_cover4.JPG",
-  "assets/images/test_images/test_cover5.JPG"
-];
-
-String defaultImage = "https://i.imgur.com/bwpFQHQ.jpg";
+const String defaultImage = "https://i.imgur.com/bwpFQHQ.jpg";
