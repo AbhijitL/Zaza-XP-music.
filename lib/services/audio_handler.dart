@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
@@ -25,7 +27,7 @@ class ZazaAudioHandler extends BaseAudioHandler {
     } on PlayerInterruptedException catch (e) {
       print("Connection aborted: ${e.message}");
     } catch (e) {
-      _audioPlayer.setUrl("http://curiosity.shoutca.st:8019/stream");
+      print(e);
     }
     // _notifyAudioHandlerAboutPlaybackEvents();
   }
@@ -40,8 +42,8 @@ class ZazaAudioHandler extends BaseAudioHandler {
 
   @override
   Future<void> pause() async {
-    // playbackState.add(playbackState.value
-    //     .copyWith(playing: false, controls: [MediaControl.play]));
+    playbackState.add(playbackState.value
+        .copyWith(playing: false, controls: [MediaControl.play]));
     await _audioPlayer.setVolume(0);
     print("Audio is paused");
   }
@@ -55,6 +57,21 @@ class ZazaAudioHandler extends BaseAudioHandler {
     playbackState.add(playbackState.value.copyWith(
       processingState: AudioProcessingState.idle,
     ));
+  }
+
+  @override
+  Future<void> dispose() => _audioPlayer.dispose();
+
+  @override
+  Future<void> onTaskRemoved() async {
+    await pause();
+    await stop();
+    await dispose();
+    super.onTaskRemoved();
+    print("removed ");
+    // this is dangerous and hacky
+    // TODO: Implement better way to exit the app properly.
+    exit(0);
   }
 
   // void _notifyAudioHandlerAboutPlaybackEvents() {
