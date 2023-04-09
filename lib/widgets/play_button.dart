@@ -1,6 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:zaza_xp/constants.dart';
+import 'package:audio_service/audio_service.dart';
+import '../services/service_locator.dart';
+
+final _audioHandler = getIt<AudioHandler>();
 
 class PlayButton extends StatefulWidget {
   Color btnColor;
@@ -19,6 +23,9 @@ class _PlayButtonState extends State<PlayButton> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    if (isPlaying) {
+      _audioHandler.play();
+    }
   }
 
   @override
@@ -30,8 +37,10 @@ class _PlayButtonState extends State<PlayButton> {
           onPressed: () async {
             if (isPlaying) {
               isPlaying = false;
+              _audioHandler.pause();
             } else {
               isPlaying = true;
+              _audioHandler.play();
             }
             setState(() {});
           },
