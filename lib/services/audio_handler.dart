@@ -20,7 +20,7 @@ class ZazaAudioHandler extends BaseAudioHandler {
   final _audioPlayer = AudioPlayer();
   ZazaAudioHandler() {
     try {
-      _audioPlayer.setUrl("http://curiosity.shoutca.st:8019/stream");
+      _audioPlayer.setUrl(MusicSource);
     } on PlayerException catch (e) {
       print("Error code: ${e.code}");
       print("Error Message: ${e.message}");
