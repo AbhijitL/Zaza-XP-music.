@@ -50,11 +50,9 @@ class _HomePageState extends State<HomePage> {
     super.didUpdateWidget(oldWidget);
 
     if (_tempName == widget.artistName) {
-      print(_tempName + " and " + widget.artistName);
     } else {
       setColor();
       _tempName = widget.artistName;
-      print(_tempName + " and " + widget.artistName);
       print("Color Set");
     }
     print("Home widget update");
