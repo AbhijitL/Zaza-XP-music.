@@ -53,11 +53,11 @@ class _LoadingPageState extends State<LoadingPage> {
                     break;
                   default:
                     print("default Case called");
+                    print(op);
                     sendPings(heartBeat);
                     break;
                 }
               }
-              // setColor();
               if (snapshot.data != null) {
                 print("HomePage Rebuilt");
                 return HomePage(
