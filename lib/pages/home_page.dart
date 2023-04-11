@@ -35,20 +35,29 @@ class _HomePageState extends State<HomePage> {
     Color.fromARGB(255, 255, 224, 218)!
   ];
   String imgPath = "assets/images/test_images/test_cover.JPG";
-
+  var _tempName = "null";
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     print("init of home called");
+    _tempName = widget.artistName;
     setColor();
   }
 
   @override
   void didUpdateWidget(HomePage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    print("Update home page");
-    setColor();
+
+    if (_tempName == widget.artistName) {
+      print(_tempName + " and " + widget.artistName);
+    } else {
+      setColor();
+      _tempName = widget.artistName;
+      print(_tempName + " and " + widget.artistName);
+      print("Color Set");
+    }
+    print("Home widget update");
   }
 
   Future<Color> setColor() async {
