@@ -11,7 +11,20 @@ class SongCover extends StatefulWidget {
   State<SongCover> createState() => _SongCoverState();
 }
 
-class _SongCoverState extends State<SongCover> {
+class _SongCoverState extends State<SongCover>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animationController = new AnimationController(
+      vsync: this,
+      duration: new Duration(seconds: 7),
+    );
+    animationController.repeat();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,13 +32,29 @@ class _SongCoverState extends State<SongCover> {
       height: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(50),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
         child: FittedBox(
           alignment: Alignment.center,
           fit: BoxFit.cover,
-          child: CircleAvatar(
-            backgroundImage: AssetImage("assets/images/bg/dd.jpg"),
-            foregroundImage: NetworkImage(widget.imgUrl),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Image.asset("assets/images/bg/r1.jpg"),
+              AnimatedBuilder(
+                animation: animationController,
+                child: CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/bg/r2.png"),
+                  foregroundImage: NetworkImage(widget.imgUrl),
+                  radius: 330,
+                ),
+                builder: (context, child) {
+                  return new Transform.rotate(
+                    angle: animationController.value * 6.3,
+                    child: child,
+                  );
+                },
+              ),
+            ],
           ),
           clipBehavior: Clip.hardEdge,
         ),
