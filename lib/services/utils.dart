@@ -11,6 +11,7 @@ Future<Color> getImageColor(String url) async {
 Future<Color> _updatePaletteGenerator(Image img) async {
   PaletteGenerator paletteGenerator = await PaletteGenerator.fromImageProvider(
     img.image,
+    timeout: const Duration(seconds: 30),
   );
   return paletteGenerator.dominantColor!.color;
 }
