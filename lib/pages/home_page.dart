@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:zaza_xp/services/utils.dart';
 import 'package:zaza_xp/widgets/play_button.dart';
 import 'package:zaza_xp/widgets/progress_visualizer.dart';
+import 'package:zaza_xp/widgets/tapable_text.dart';
 import 'package:zaza_xp/widgets/song_cover.dart';
 
 class HomePage extends StatefulWidget {
@@ -92,31 +93,19 @@ class _HomePageState extends State<HomePage> {
           SongCover(imgUrl: widget.albumURL),
           Container(
             padding: EdgeInsets.all(2),
-            child: Material(
-              color: Colors.transparent,
-              child: Text(
-                widget.songTitle,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            child: TapableText(
+                text: widget.songTitle,
+                fontSize: 50,
+                textColor: Colors.white,
+                copyText: widget.songTitle + " " + widget.artistName,
+                message: "Song title and Artist name copied"),
           ),
-          Material(
-            color: Colors.transparent,
-            child: Text(
-              widget.artistName,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                color: Color.fromARGB(255, 232, 232, 232),
-              ),
-            ),
-          ),
+          TapableText(
+              text: widget.artistName,
+              fontSize: 18,
+              textColor: Color.fromARGB(255, 232, 232, 232),
+              copyText: widget.artistName,
+              message: "Artist name copied"),
           Padding(
             padding: EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
             child: ProgressVisualizer(
