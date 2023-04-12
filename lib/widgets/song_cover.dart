@@ -36,6 +36,7 @@ class _SongCoverState extends State<SongCover>
         child: FittedBox(
           alignment: Alignment.center,
           fit: BoxFit.cover,
+          clipBehavior: Clip.hardEdge,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -56,7 +57,6 @@ class _SongCoverState extends State<SongCover>
               ),
             ],
           ),
-          clipBehavior: Clip.hardEdge,
         ),
       ),
     );
