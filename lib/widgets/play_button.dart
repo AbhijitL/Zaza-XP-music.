@@ -49,9 +49,10 @@ class _PlayButtonState extends State<PlayButton> {
                 ? Icons.pause_circle_filled_rounded
                 : Icons.play_circle_fill_rounded,
             color: widget.btnColor,
-            size: 80,
+            size: 100,
             shadows: <Shadow>[
-              Shadow(color: Color.fromARGB(153, 98, 98, 98), blurRadius: 50.0)
+              Shadow(
+                  color: Color.fromARGB(153, 141, 141, 141), blurRadius: 50.0)
             ],
           ),
         ),

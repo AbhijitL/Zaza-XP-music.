@@ -20,7 +20,7 @@ class _SongCoverState extends State<SongCover>
     super.initState();
     animationController = new AnimationController(
       vsync: this,
-      duration: new Duration(seconds: 7),
+      duration: Duration(seconds: 7),
     );
     animationController.repeat();
   }
@@ -30,7 +30,7 @@ class _SongCoverState extends State<SongCover>
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(50),
+      padding: EdgeInsets.all(45),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: FittedBox(
