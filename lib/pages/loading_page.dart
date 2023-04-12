@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:zaza_xp/constants.dart';
 import 'package:zaza_xp/model/socket.dart';
 import 'package:zaza_xp/pages/home_page.dart';
 import 'package:zaza_xp/services/utils.dart';
@@ -103,7 +104,7 @@ class _LoadingPageState extends State<LoadingPage> {
           child: Material(
             color: Colors.transparent,
             child: Text(
-              " version: 0.1A",
+              " version: " + AppVersion,
               style: TextStyle(fontSize: 15.0, color: Colors.white),
             ),
           ),
