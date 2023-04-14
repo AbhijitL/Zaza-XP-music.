@@ -38,7 +38,7 @@ String getAlbumImage(MusicData data) {
   try {
     for (int i = 0; i < albumList.length; i++) {
       if (albumList[i].image != null) {
-        image = "https://cdn.listen.moe/covers/" + albumList[i].image!;
+        image = "https://cdn.listen.moe/covers/${albumList[i].image!}";
       }
     }
   } catch (e) {
@@ -104,7 +104,7 @@ String getArtistImage(MusicData data) {
   try {
     for (int i = 0; i < artistList.length; i++) {
       if (artistList[i].image != null) {
-        artistImage = "https://cdn.listen.moe/artists/" + artistList[i].image!;
+        artistImage = "https://cdn.listen.moe/artists/${artistList[i].image!}";
       } else {
         artistImage = defaultImage;
       }
