@@ -66,8 +66,8 @@ class _VisualComponentState extends State<VisualComponent>
 
   @override
   void dispose() {
-    animation!..removeListener(() {});
-    animation!..removeStatusListener((status) {});
+    animation!.removeListener(() {});
+    animation!.removeStatusListener((status) {});
     animationController!.stop();
     animationController!.reset();
     animationController!.dispose();
