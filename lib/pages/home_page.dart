@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:zaza_xp/services/utils.dart';
 import 'package:zaza_xp/widgets/play_button.dart';
@@ -41,7 +41,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("init of home called");
+    if (kDebugMode) {
+      print("init of home called");
+    }
     _tempName = widget.artistName;
     setColor();
   }
@@ -54,18 +56,22 @@ class _HomePageState extends State<HomePage> {
     } else {
       setColor();
       _tempName = widget.artistName;
-      print("Color Set");
+      if (kDebugMode) {
+        print("Color Set");
+      }
     }
-    print("Home widget update");
+    if (kDebugMode) {
+      print("Home widget update");
+    }
   }
 
   Future<Color> setColor() async {
     imageColor = await getImageColor(widget.albumURL);
     colors = [
       imageColor!,
-      Color.fromARGB(255, 234, 255, 229)!,
+      const Color.fromARGB(255, 234, 255, 229)!,
       imageColor!,
-      Color.fromARGB(255, 255, 235, 235)!
+      const Color.fromARGB(255, 255, 235, 235)!
     ];
     setState(() {});
     return imageColor;
@@ -82,8 +88,8 @@ class _HomePageState extends State<HomePage> {
         end: Alignment.bottomCenter,
         colors: <Color>[
           imageColor,
-          Color.fromARGB(241, 0, 0, 0),
-          Color.fromARGB(115, 0, 0, 0),
+          const Color.fromARGB(241, 0, 0, 0),
+          const Color.fromARGB(115, 0, 0, 0),
         ],
       )),
       child: Column(
@@ -92,22 +98,23 @@ class _HomePageState extends State<HomePage> {
         children: [
           SongCover(imgUrl: widget.albumURL),
           Container(
-            padding: EdgeInsets.all(2),
+            padding: const EdgeInsets.all(2),
             child: TapableText(
                 text: widget.songTitle,
                 fontSize: 50,
                 textColor: Colors.white,
-                copyText: widget.songTitle + " " + widget.artistName,
+                copyText: "${widget.songTitle} ${widget.artistName}",
                 message: "Song title and Artist name copied"),
           ),
           TapableText(
               text: widget.artistName,
               fontSize: 18,
-              textColor: Color.fromARGB(255, 232, 232, 232),
+              textColor: const Color.fromARGB(255, 232, 232, 232),
               copyText: widget.artistName,
               message: "Artist name copied"),
           Padding(
-            padding: EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
+            padding:
+                const EdgeInsets.only(top: 10, bottom: 10, left: 30, right: 30),
             child: ProgressVisualizer(
               barCount: 30,
               colors: colors,
@@ -118,21 +125,21 @@ class _HomePageState extends State<HomePage> {
           Material(
             color: Colors.transparent,
             child: Padding(
-              padding:
-                  EdgeInsets.only(top: 10, bottom: 10, left: 40, right: 40),
+              padding: const EdgeInsets.only(
+                  top: 10, bottom: 10, left: 40, right: 40),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.hearing_outlined,
                         color: Colors.white,
                       ),
                       Text(
                         widget.listeners.toString(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           color: Color.fromARGB(255, 232, 232, 232),
                         ),
@@ -142,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     formatedTime(timeInSecond: widget.duration),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Color.fromARGB(255, 232, 232, 232),
                     ),
