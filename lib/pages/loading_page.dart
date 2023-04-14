@@ -1,9 +1,9 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:zaza_xp/constants.dart';
 import 'package:zaza_xp/model/socket.dart';
 import 'package:zaza_xp/pages/home_page.dart';
-import 'package:zaza_xp/services/utils.dart';
 import '../services/services.dart';
 
 class LoadingPage extends StatefulWidget {
@@ -33,7 +33,9 @@ class _LoadingPageState extends State<LoadingPage> {
               if (snapshot.hasData) {
                 if (snapshot.connectionState.index == 0) {
                   connect();
-                  print("Connect");
+                  if (kDebugMode) {
+                    print("Connect");
+                  }
                 }
                 var d = jsonDecode(snapshot.data.toString());
                 var op = d['op'];
@@ -41,7 +43,9 @@ class _LoadingPageState extends State<LoadingPage> {
                   case 0:
                     getChannel().sink.add(jsonEncode({"op": 9}));
                     sendPings(heartBeat);
-                    print("Case 0 called");
+                    if (kDebugMode) {
+                      print("Case 0 called");
+                    }
                     break;
                   case 1:
                     if (d['t'] != 'TRACK_UPDATE' &&
@@ -50,17 +54,25 @@ class _LoadingPageState extends State<LoadingPage> {
                         d['t'] != 'NOTIFICATION') break;
                     data = MusicData.fromJson(d);
                     sendPings(heartBeat);
-                    print("Case 1 called");
+                    if (kDebugMode) {
+                      print("Case 1 called");
+                    }
                     break;
                   default:
-                    print("default Case called");
-                    print(op);
+                    if (kDebugMode) {
+                      print("default Case called");
+                    }
+                    if (kDebugMode) {
+                      print(op);
+                    }
                     sendPings(heartBeat);
                     break;
                 }
               }
               if (snapshot.data != null) {
-                print("HomePage Rebuilt");
+                if (kDebugMode) {
+                  print("HomePage Rebuilt");
+                }
                 return HomePage(
                   albumURL: getAlbumImage(data!),
                   songTitle: getSongTitle(data!),
@@ -70,8 +82,12 @@ class _LoadingPageState extends State<LoadingPage> {
                 );
               }
             } catch (e) {
-              print("Errrrrrrrrrrr");
-              print(e);
+              if (kDebugMode) {
+                print("Errrrrrrrrrrr");
+              }
+              if (kDebugMode) {
+                print(e);
+              }
               return const Center(
                 child: Text("Error"),
               );
@@ -101,10 +117,10 @@ class _LoadingPageState extends State<LoadingPage> {
         Container(
           width: double.infinity,
           alignment: Alignment.bottomLeft,
-          child: Material(
+          child: const Material(
             color: Colors.transparent,
             child: Text(
-              " version: " + AppVersion,
+              " version: $AppVersion",
               style: TextStyle(fontSize: 15.0, color: Colors.white),
             ),
           ),
