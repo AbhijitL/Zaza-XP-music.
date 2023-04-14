@@ -18,9 +18,9 @@ class _SongCoverState extends State<SongCover>
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController = new AnimationController(
+    animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 7),
+      duration: const Duration(seconds: 7),
     );
     animationController.repeat();
   }
@@ -30,7 +30,7 @@ class _SongCoverState extends State<SongCover>
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(45),
+      padding: const EdgeInsets.all(45),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: FittedBox(
@@ -44,12 +44,12 @@ class _SongCoverState extends State<SongCover>
               AnimatedBuilder(
                 animation: animationController,
                 child: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/bg/r2.png"),
+                  backgroundImage: const AssetImage("assets/images/bg/r2.png"),
                   foregroundImage: NetworkImage(widget.imgUrl),
                   radius: 330,
                 ),
                 builder: (context, child) {
-                  return new Transform.rotate(
+                  return Transform.rotate(
                     angle: animationController.value * 6.3,
                     child: child,
                   );
