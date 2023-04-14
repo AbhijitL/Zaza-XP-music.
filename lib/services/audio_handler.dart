@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:zaza_xp/constants.dart';
@@ -22,12 +23,20 @@ class ZazaAudioHandler extends BaseAudioHandler {
     try {
       _audioPlayer.setUrl(MusicSource);
     } on PlayerException catch (e) {
-      print("Error code: ${e.code}");
-      print("Error Message: ${e.message}");
+      if (kDebugMode) {
+        print("Error code: ${e.code}");
+      }
+      if (kDebugMode) {
+        print("Error Message: ${e.message}");
+      }
     } on PlayerInterruptedException catch (e) {
-      print("Connection aborted: ${e.message}");
+      if (kDebugMode) {
+        print("Connection aborted: ${e.message}");
+      }
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
     // _notifyAudioHandlerAboutPlaybackEvents();
   }
@@ -37,7 +46,9 @@ class ZazaAudioHandler extends BaseAudioHandler {
         .copyWith(playing: true, controls: [MediaControl.pause]));
     await _audioPlayer.play();
     _audioPlayer.setVolume(1);
-    print("Audio is playing");
+    if (kDebugMode) {
+      print("Audio is playing");
+    }
   }
 
   @override
@@ -45,7 +56,9 @@ class ZazaAudioHandler extends BaseAudioHandler {
     playbackState.add(playbackState.value
         .copyWith(playing: false, controls: [MediaControl.play]));
     await _audioPlayer.setVolume(0);
-    print("Audio is paused");
+    if (kDebugMode) {
+      print("Audio is paused");
+    }
   }
 
   @override
@@ -68,7 +81,9 @@ class ZazaAudioHandler extends BaseAudioHandler {
     await stop();
     await dispose();
     super.onTaskRemoved();
-    print("removed ");
+    if (kDebugMode) {
+      print("removed ");
+    }
     // this is dangerous and hacky
     // TODO: Implement better way to exit the app properly.
     exit(0);
