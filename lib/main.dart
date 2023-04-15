@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:audio_service/audio_service.dart';
 import 'package:zaza_xp/pages/loading_page.dart';
 import 'package:zaza_xp/services/service_locator.dart';
-
-late AudioHandler _audioHandler;
 
 void main() async {
   // Set status bar to transparent.
