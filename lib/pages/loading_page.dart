@@ -13,8 +13,25 @@ class LoadingPage extends StatefulWidget {
   State<LoadingPage> createState() => _LoadingPageState();
 }
 
-class _LoadingPageState extends State<LoadingPage> {
+class _LoadingPageState extends State<LoadingPage> with WidgetsBindingObserver {
   MusicData? data;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    super.didChangeAppLifecycleState(state);
+    switch (state) {
+      case AppLifecycleState.resumed:
+        onResumed();
+        break;
+    }
+  }
+
+  void onResumed() {
+    setState(() {
+      getChannel();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +78,6 @@ class _LoadingPageState extends State<LoadingPage> {
                   default:
                     if (kDebugMode) {
                       print("default Case called");
-                    }
-                    if (kDebugMode) {
                       print(op);
                     }
                     sendPings(heartBeat);
@@ -72,6 +87,7 @@ class _LoadingPageState extends State<LoadingPage> {
               if (snapshot.data != null) {
                 if (kDebugMode) {
                   print("HomePage Rebuilt");
+                  print(getSongTitle(data!));
                 }
                 return HomePage(
                   albumURL: getAlbumImage(data!),
@@ -82,9 +98,6 @@ class _LoadingPageState extends State<LoadingPage> {
                 );
               }
             } catch (e) {
-              if (kDebugMode) {
-                print("Errrrrrrrrrrr");
-              }
               if (kDebugMode) {
                 print(e);
               }
@@ -120,7 +133,7 @@ class _LoadingPageState extends State<LoadingPage> {
           child: const Material(
             color: Colors.transparent,
             child: Text(
-              " version: $AppVersion",
+              " version: $appVersion",
               style: TextStyle(fontSize: 15.0, color: Colors.white),
             ),
           ),

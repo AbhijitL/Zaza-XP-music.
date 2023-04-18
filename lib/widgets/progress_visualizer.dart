@@ -23,7 +23,7 @@ class ProgressVisualizer extends StatelessWidget {
           height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: new List<Widget>.generate(
+            children: List<Widget>.generate(
                 barCount!,
                 (index) => VisualComponent(
                       curve: curve!,
@@ -87,7 +87,7 @@ class _VisualComponentState extends State<VisualComponent>
   }
 
   void update() {
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (mounted) setState(() {});
     });
   }

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 class SongCover extends StatefulWidget {
-  String imgUrl;
-  SongCover({
+  final String imgUrl;
+  const SongCover({
     Key? key,
     required this.imgUrl,
   }) : super(key: key);

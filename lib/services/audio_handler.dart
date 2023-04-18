@@ -21,7 +21,7 @@ class ZazaAudioHandler extends BaseAudioHandler {
   final _audioPlayer = AudioPlayer();
   ZazaAudioHandler() {
     try {
-      _audioPlayer.setUrl(MusicSource);
+      _audioPlayer.setUrl(musicSource);
     } on PlayerException catch (e) {
       if (kDebugMode) {
         print("Error code: ${e.code}");

@@ -5,12 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:zaza_xp/services/toast.dart';
 
 class TapableText extends StatelessWidget {
-  String text;
-  double fontSize;
-  Color textColor;
-  String copyText;
-  String message;
-  TapableText({
+  final String text;
+  final double fontSize;
+  final Color textColor;
+  final String copyText;
+  final String message;
+  const TapableText({
     Key? key,
     required this.text,
     required this.fontSize,

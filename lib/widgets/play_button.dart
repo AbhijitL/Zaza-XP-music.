@@ -7,8 +7,8 @@ import '../services/service_locator.dart';
 final _audioHandler = getIt<AudioHandler>();
 
 class PlayButton extends StatefulWidget {
-  Color btnColor;
-  PlayButton({
+  final Color btnColor;
+  const PlayButton({
     Key? key,
     required this.btnColor,
   }) : super(key: key);

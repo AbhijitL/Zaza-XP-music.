@@ -28,7 +28,7 @@ class Root extends StatelessWidget {
         colorSchemeSeed: Colors.greenAccent,
         fontFamily: GoogleFonts.jetBrainsMono().fontFamily,
       ),
-      home: LoadingPage(),
+      home: const LoadingPage(),
     );
   }
 }
