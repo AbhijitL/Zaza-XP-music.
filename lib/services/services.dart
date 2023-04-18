@@ -61,7 +61,7 @@ String getArtistName(MusicData data) {
   String artistName = "Unknown";
   final List<Artist> artistList = data.d.song.artists;
   try {
-    for (int i = 0; i < artistList.length; i++) {
+    for (int i = 0; i < artistList.length;) {
       if (artistList[i].nameRomaji != null) {
         artistName = artistList[i].nameRomaji!;
       } else if (artistList[i].name != null) {
@@ -102,7 +102,7 @@ String getArtistImage(MusicData data) {
   String artistImage = defaultImage;
   final List<Artist> artistList = data.d.song.artists;
   try {
-    for (int i = 0; i < artistList.length; i++) {
+    for (int i = 0; i < artistList.length;) {
       if (artistList[i].image != null) {
         artistImage = "https://cdn.listen.moe/artists/${artistList[i].image!}";
       } else {
