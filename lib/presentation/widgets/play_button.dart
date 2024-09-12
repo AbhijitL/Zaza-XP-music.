@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:audio_service/audio_service.dart';
-import '../services/service_locator.dart';
+import '../../services/service_locator.dart';
 
 final _audioHandler = getIt<AudioHandler>();
 

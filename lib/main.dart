@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zaza_xp/pages/loading_page.dart';
+import 'package:zaza_xp/presentation/pages/loading_page.dart';
 import 'package:zaza_xp/services/service_locator.dart';
 
 void main() async {

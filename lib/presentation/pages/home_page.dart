@@ -3,10 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:zaza_xp/services/utils.dart';
-import 'package:zaza_xp/widgets/play_button.dart';
-import 'package:zaza_xp/widgets/progress_visualizer.dart';
-import 'package:zaza_xp/widgets/tapable_text.dart';
-import 'package:zaza_xp/widgets/song_cover.dart';
+import 'package:zaza_xp/presentation/widgets/play_button.dart';
+import 'package:zaza_xp/presentation/widgets/progress_visualizer.dart';
+import 'package:zaza_xp/presentation/widgets/tapable_text.dart';
+import 'package:zaza_xp/presentation/widgets/song_cover.dart';
 
 class HomePage extends StatefulWidget {
   String albumURL;

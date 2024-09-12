@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:zaza_xp/constants.dart';
-import 'package:zaza_xp/model/socket.dart';
-import 'package:zaza_xp/pages/home_page.dart';
-import '../services/services.dart';
+import 'package:zaza_xp/data/models/socket.dart';
+import 'package:zaza_xp/presentation/pages/home_page.dart';
+import '../../services/services.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});

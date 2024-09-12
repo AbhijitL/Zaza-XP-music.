@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:zaza_xp/constants.dart';
-import 'package:zaza_xp/model/socket.dart';
+import 'package:zaza_xp/data/models/socket.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
